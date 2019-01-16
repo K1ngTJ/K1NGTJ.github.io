@@ -1,4 +1,22 @@
 {
-  "name":"Jason",
-  "age":15
+ {
+  "food": [
+{  "name":"Southern Burger",
+   "price":11.48,
+   "Pounds":0.5,
+   "Sides":["Fries"]
+ }
+ ,
+{  "name":"Golden Burger",
+   "price":11.48,
+   "Pounds":0.5,
+   "Sides":["Waffle Fries"]
+ }
+  
+  
+  
+  
+  
+  ]
+}
 }
