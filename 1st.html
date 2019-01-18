@@ -1,33 +1,117 @@
 <html>
-<head>
-<style>
-body{
-  background-image:url("5-Tasty-Ideas-to-Liven-Up-Your-Burgers.jpg");
-  background-size:cover;
-}
-.button{
-  background-color:red;
-  height:25vh;
-  width:25vw;
- margin:auto;
-  display:block;
-}
-</style>
-</head>
-<body>
+  <head>
+   <style>
+     .div1{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
 
+     }
+     .div2{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
 
-<button onclick="go()" class="button" >
-  <h1>
-    Click To Begin
-  </h1>
-</button >
-<script>
-      function go(){
+     }
+     .div3{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
 
-  location.href = "index.html";
+     }
+     .div4{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
 
-    }
-</script>
-</body>
-</html>
+     }
+     .div5{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+
+     }
+     .div6{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+
+     }
+     
+     .div7{
+       background-color:red;
+        width: 17.1vw;
+        height:78.2vh;
+        border: 5px solid gray;
+        position:absolute;
+   top:66;
+   right:0;
+
+     }
+   </style>
+    
+  </head>
+  <body>
+    <h1> BURGER COMPANY</h1>
+    <div class="div1">
+      
+    </div>
+        <div class="div2">
+      
+    </div>
+    
+        <div class="div3">
+      
+    </div>
+    
+        <div class="div4">
+      
+    </div>
+        <div class="div5">
+      
+    </div>
+        <div class="div6">
+      
+    </div>
+    <div class="div7">
+      
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  <script>
+  
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function(){
+    if(this.readystate == 4 && this.status == 200){
+      var mydata = JSON.parse(this.responseText);
+      window.alert(mydata.name);
+     }
+   };
+   xmlhttp.open("GET","menu.json",true);
+   xmlhttp.send();
+    </script>
+  </body>
+  </html>
