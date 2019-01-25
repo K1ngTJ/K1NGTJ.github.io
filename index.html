@@ -1,33 +1,124 @@
 <html>
-<head>
-<style>
-body{
-  background-image:url("https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwij4redqvjfAhWjFTQIHQaKBXkQjRx6BAgBEAU&url=https%3A%2F%2Fwww.seriouseats.com%2Frecipes%2F2017%2F06%2Fkorean-bulgogi-burgers-recipe.html&psig=AOvVaw0fFCoBnhyZdvOQvYuKyshs&ust=1547935224649860");
-  background-size:cover;
-}
-.button{
-  background-color:red;
-  height:25vh;
-  width:25vw;
- margin:auto;
-  display:block;
-}
-</style>
-</head>
-<body>
+  <head>
+   <style>
+     .div1{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+        background-image:url("ultimate-southern-style-burger-2-2.jpg");
+          background-size:cover;
+          
 
+     }
+     .div2{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+        background-image:url("Untitled image (4).jpg");
+          background-size:cover;
 
-<button onclick="go()" class="button" >
-  <h1>
-    Click To Begin
-  </h1>
-</button >
-<script>
-      function go(){
+     }
+     .div3{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+         background-image:url("Teriyaki-Burgers-recipe-600x585.jpg ");
+          background-size:cover;
 
-  location.href = "1st.html";
+     }
+     .div4{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+                background-image:url("this-is-britains-biggest-burger-1-2773.jpg");
+          background-size:cover;
 
-    }
-</script>
-</body>
-</html>
+     }
+     .div5{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+         background-image:url("Untitled image (5).jpg  ");
+          background-size:cover;
+
+     }
+     .div6{
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+                 background-image:url("baked-bacon-cheeseburger-sliders-8-of-11.jpg   ");
+          background-size:cover;
+
+     }
+     
+     .div7{
+       background-color:red;
+        width: 17.1vw;
+        height:78.2vh;
+        border: 5px solid gray;
+        position:absolute;
+   top:66;
+   right:0;
+
+     }
+   </style>
+    
+  </head>
+  <body>
+    <h1> BURGER COMPANY</h1>
+    <div class="div1">
+      
+    </div>
+        <div class="div2">
+      
+    </div>
+    
+        <div class="div3">
+      
+    </div>
+    
+        <div class="div4">
+      
+    </div>
+        <div class="div5">
+      
+    </div>
+        <div class="div6">
+      
+    </div>
+    <div class="div7">
+      
+    </div>
+    
+  <script>
+  
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function(){
+    if(this.readystate == 4 && this.status == 200){
+      var mydata = JSON.parse(this.responseText);
+      window.alert(mydata.name);
+     }
+   };
+   xmlhttp.open("GET","menu.json",true);
+   xmlhttp.send();
+    </script>
+  </body>
+  </html>
