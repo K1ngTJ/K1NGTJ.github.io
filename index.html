@@ -146,8 +146,9 @@ xmlhttp.open("GET", "menu.json" , true);
 xmlhttp.send();
 
   function option1(){
+   var userChoice = fp.value;
    var newList = $.createElement('ol');
-   var newText = $.createTextNode(fp + fn);
+   var newText = $.createTextNode(userChoice1);
    newList.appendChild(newText);
    var position = $.getElementById("Reciept");
    position.appendChild(newList);
