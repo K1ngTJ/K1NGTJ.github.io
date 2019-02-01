@@ -8,16 +8,15 @@
   
    <style>
      .div1{
-       background-color:red;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        border: 5px solid gray;
-        float:left;
-        background-image:url("ultimate-southern-style-burger-2-2.jpg");
-          background-size:cover;
-          
-
+      background-color:red;
+      width: 25vw;
+      height:35vh;
+      padding: 10px;
+      border: 5px solid gray;
+      float:left;
+      background-image:url("ultimate-southern-style-burger-2-2.jpg");
+      background-size:cover;
+        
      }
      .div2{
        background-color:red;
@@ -164,7 +163,8 @@
   var foodp = [];
   var previous =null;
   var current = null;
-  
+  var p;
+  var tax;
   function option1(){
    var userChoice = $.getElementById('userChoice1').value;
    $.getElementById('userChoice1').value= "";
@@ -173,8 +173,20 @@
    newList.appendChild(newText);
    var position = $.getElementById("Reciept");
    position.appendChild(newList);
-
   }
+  
+      var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if(this.readyState == 4 && this.status == 200) {
+             var mydata = JSON.parse(this.responseText);
+    $.getElementById('food').innerHTML = mydata.food[0].name;
+    $.getElementById('price').innerHTML =  "$"+ mydata.food[0].price;
+   p = mydata.food[0].price;
+   tax = mydata.food[0].tax
+}
+};
+xmlhttp.open("GET", "menu.json" , true);
+xmlhttp.send();
     </script>
   </body>
   </html>
