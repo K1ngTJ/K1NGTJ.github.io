@@ -129,18 +129,7 @@
   var $ = document
   var fp = [ ];
   var fn = [ ];
-  
-  
-    function option1(){
-   var userChoice = $.getElementById('userChoice1').value;
-   $.getElementById('userChoice1').value= "";
-   var newList = $.createElement('ol');
-   var newText = $.createTextNode(userChoice1);
-   newList.appendChild(newText);
-   var position = $.getElementById("Reciept");
-   position.appendChild(newList);
-  }
-  
+
       var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if(this.readyState == 4 && this.status == 200) {
@@ -156,6 +145,13 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "menu.json" , true);
 xmlhttp.send();
 
+  function option1(){
+   var newList = $.createElement('ol');
+   var newText = $.createTextNode(fp + fn);
+   newList.appendChild(newText);
+   var position = $.getElementById("Reciept");
+   position.appendChild(newList);
+  }
     </script>
   </body>
   </html>
