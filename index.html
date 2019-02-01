@@ -1,5 +1,11 @@
 <html>
   <head>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+  </script>
+  
    <style>
      .div1{
        background-color:red;
@@ -64,8 +70,8 @@
         padding: 10px;
         border: 5px solid gray;
         float:left;
-                 background-image:url("baked-bacon-cheeseburger-sliders-8-of-11.jpg   ");
-          background-size:cover;
+        background-image:url("baked-bacon-cheeseburger-sliders-8-of-11.jpg   ");
+        background-size:cover;
 
      }
      
@@ -85,40 +91,68 @@
   <body>
     <h1> BURGER COMPANY</h1>
     <div class="div1">
+    <input type = "text" id="userChoice1">
+    <button onclick="option1() " >BUY</button>
+
+    </div>
+    <div class="div2">
+    <input type = "text" id="userChoice">
+    <button class="Golden Burger">BUY</button>
+
       
     </div>
-        <div class="div2">
-      
+    <div class="div3">
+    <input type = "text" id="userChoice">
+    <button class="Hawaiian Burger">BUY</button>
+
     </div>
-    
-        <div class="div3">
-      
+    <div class="div4">
+    <input type = "text" id="userChoice">
+    <button class="Hawaiian Burger">BUY</button>
+
     </div>
-    
-        <div class="div4">
-      
+    <div class="div5">
+    <input type = "text" id="userChoice">
+        <button class="Hawaiian Burger">BUY</button>
+
     </div>
-        <div class="div5">
-      
-    </div>
-        <div class="div6">
-      
+    <div class="div6">
+    <input type = "text" id="userChoice">
+    <button class="Hawaiian Burger">BUY</button>
+
     </div>
     <div class="div7">
-      
+      <p id="Reciept"></p>
     </div>
     
   <script>
+  var $ = document
+  var foodn = [];
+  var foodp = [];
+  var previous =null;
+  var current = null;
   
-   var xmlhttp = new XMLHttpRequest();
-   xmlhttp.onreadystatechange = function(){
-    if(this.readystate == 4 && this.status == 200){
-      var mydata = JSON.parse(this.responseText);
-      window.alert(mydata.name);
-     }
-   };
-   xmlhttp.open("GET","menu.json",true);
-   xmlhttp.send();
+  function option1(){
+   var userChoice = $.getElementById('userChoice1').value;
+   $.getElementById('userChoice1').value= "";
+   var newList = $.createElement('ol');
+   var newText = $.createTextNode(userChoice1);
+   newList.appendChild(newText);
+   var position = $.getElementById("Reciept");
+   position.appendChild(newList);
+
+  }
+  
+  for (var i)
+  
+
+  
+  
+  
+  
+  
+  
+
     </script>
   </body>
   </html>
