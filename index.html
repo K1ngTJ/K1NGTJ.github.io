@@ -8,15 +8,16 @@
   
    <style>
      .div1{
-      background-color:red;
-      width: 25vw;
-      height:35vh;
-      padding: 10px;
-      border: 5px solid gray;
-      float:left;
-      background-image:url("ultimate-southern-style-burger-2-2.jpg");
-      background-size:cover;
-        
+       background-color:red;
+        width: 25vw;
+        height:35vh;
+        padding: 10px;
+        border: 5px solid gray;
+        float:left;
+        background-image:url("ultimate-southern-style-burger-2-2.jpg");
+          background-size:cover;
+          
+
      }
      .div2{
        background-color:red;
@@ -90,67 +91,34 @@
   <body>
     <h1> BURGER COMPANY</h1>
     <div class="div1">
-<select>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-<button onclick="option1() " >BUY</button>
+    <input type = "text" id="userChoice1">
+    <button onclick="option1() " >BUY</button>
 
     </div>
-    
     <div class="div2">
-<select>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-]<button class="Golden Burger">BUY</button>
+    <input type = "text" id="userChoice">
+    <button class="Golden Burger">BUY</button>
 
       
     </div>
-    
     <div class="div3">
-<select>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-
-<button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="userChoice">
+    <button class="Hawaiian Burger">BUY</button>
 
     </div>
     <div class="div4">
-<select>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-<button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="userChoice">
+    <button class="Hawaiian Burger">BUY</button>
 
     </div>
     <div class="div5">
-<select>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-<button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="userChoice">
+        <button class="Hawaiian Burger">BUY</button>
 
     </div>
     <div class="div6">
-<select>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-<button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="userChoice">
+    <button class="Hawaiian Burger">BUY</button>
 
     </div>
     <div class="div7">
@@ -159,13 +127,11 @@
     
   <script>
   var $ = document
-  var foodn = [];
-  var foodp = [];
-  var previous =null;
-  var current = null;
-  var p;
-  var tax;
-  function option1(){
+  var fp = [ ];
+  var fn = [ ];
+  
+  
+    function option1(){
    var userChoice = $.getElementById('userChoice1').value;
    $.getElementById('userChoice1').value= "";
    var newList = $.createElement('ol');
@@ -178,15 +144,18 @@
       var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if(this.readyState == 4 && this.status == 200) {
-             var mydata = JSON.parse(this.responseText);
-    $.getElementById('food').innerHTML = mydata.food[0].name;
-    $.getElementById('price').innerHTML =  "$"+ mydata.food[0].price;
-   p = mydata.food[0].price;
-   tax = mydata.food[0].tax
+    var mydata = JSON.parse(this.responseText);
+  for(var i=0;i<mydata.food.length;i++);{
+  fn.push(mydata.food[i].name);
+  fp.push(mydata.food[i].price);
+  $.createElement('p');
+  text.createTextNode('')
+  
 }
 };
 xmlhttp.open("GET", "menu.json" , true);
 xmlhttp.send();
+
     </script>
   </body>
   </html>
