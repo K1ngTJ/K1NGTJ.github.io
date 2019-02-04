@@ -14,11 +14,14 @@
   </head>
   <body>  
   <div id = "reciept">
-    <h2>You Pay</h2>
+    <h2>TOTAL AMOUNT YOU PAY</h2>
     <h4 id = "items"></h4>  
+    <h2 id = "total"></h2>
   <script>
- var y = localStorage.getItem("list");
+ var y = localStorage.getItem("div7");
  document.getElementById("items").innerHTML=y;
+     var x = localStorage.getItem("gt");
+ document.getElementById("total").innerHTML="Your total is" + "$"x;
     </script>
     </div>
   </body>
