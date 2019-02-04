@@ -1,4 +1,4 @@
-<html>
+<<html>
   <head>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
  <script>
@@ -20,17 +20,17 @@ xmlhttp.onreadystatechange = function() {
   if(this.readyState == 4 && this.status == 200) {
              var mydata = JSON.parse(this.responseText);
     document.getElementById('food').innerHTML = mydata.food[0].name;
-        document.getElementById('price').innerHTML =  "$"+ mydata.food[0].price;
+    document.getElementById('price').innerHTML =  "$"+ mydata.food[0].price;
     document.getElementById('food2').innerHTML = mydata.food[1].name;
-        document.getElementById('price2').innerHTML =  "$"+ mydata.food[1].price;
+    document.getElementById('price2').innerHTML =  "$"+ mydata.food[1].price;
     document.getElementById('food3').innerHTML = mydata.food[2].name;
-        document.getElementById('price3').innerHTML =  "$"+ mydata.food[2].price;
-      document.getElementById('food4').innerHTML = mydata.food[3].name;
-        document.getElementById('price4').innerHTML =  "$"+ mydata.food[3].price;
-     document.getElementById('food5').innerHTML = mydata.food[4].name;
-        document.getElementById('price5').innerHTML =  "$"+ mydata.food[4].price;
-     document.getElementById('food6').innerHTML = mydata.food[5].name;
-        document.getElementById('price6').innerHTML =  "$"+ mydata.food[5].price;
+    document.getElementById('price3').innerHTML =  "$"+ mydata.food[2].price;
+    document.getElementById('food4').innerHTML = mydata.food[3].name;
+    document.getElementById('price4').innerHTML =  "$"+ mydata.food[3].price;
+    document.getElementById('food5').innerHTML = mydata.food[4].name;
+    document.getElementById('price5').innerHTML =  "$"+ mydata.food[4].price;
+    document.getElementById('food6').innerHTML = mydata.food[5].name;
+    document.getElementById('price6').innerHTML =  "$"+ mydata.food[5].price;
    p = mydata.food[0].price;
    p2 = mydata.food[1].price;
    p3 = mydata.food[2].price;
@@ -217,8 +217,8 @@ var total = x * p6;
     <div class="div2">
     <input type = "text" id="quant2">
     <button onclick="display2() " >BUY</button>
-     <h2 id = "food2"></h2>
-<h3 id = "price3"></h3>
+    <h2 id = "food2"></h2>
+    <h3 id = "price2"></h3>
 
       
     </div>
@@ -256,4 +256,5 @@ var total = x * p6;
     <button onclick = "transfer()">Finalize</button>
     </div>
   </body>
+  </html>
   </html>
