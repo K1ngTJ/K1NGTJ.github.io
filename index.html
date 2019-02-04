@@ -116,8 +116,8 @@ var total = x * p5;
      olTag.appendChild(li);
  }
         function display6() {
-      var x = document.getElementById('quant6').value;
-var total = x * p6;
+       var x = document.getElementById('quant6').value;
+       var total = x * p6;
    var t = total * tax;
    var at = total + t;
              tp6 = at.toFixed(2);
@@ -130,6 +130,41 @@ var total = x * p6;
      olTag.appendChild(li);
  }
       function transfer() {
+        
+         var x = document.getElementById('quant').value;
+var total = x * p;
+   var t = total * tax;
+   var at = total + t;
+   tp1 = at.toFixed(2);
+          var x = document.getElementById('quant2').value;
+var total = x * p2;
+   var t = total * tax;
+   var at = total + t;
+        tp2 = at.toFixed(2);
+        var x = document.getElementById('quant3').value;
+var total = x * p3;
+   var t = total * tax;
+   var at = total + t;
+            tp1 = at.toFixed(2);
+         function display4() {
+      var x = document.getElementById('quant4').value;
+var total = x * p4;
+   var t = total * tax;
+   var at = total + t;
+            tp4 = at.toFixed(2);
+        
+        
+            var x = document.getElementById('quant5').value;
+var total = x * p5;
+   var t = total * tax;
+   var at = total + t;
+                  tp5 = at.toFixed(2);
+        
+        
+         var x = document.getElementById('quant6').value;
+       var total = x * p6;
+   var t = total * tax;
+   var at = total + t;
         var grandtotal = tp1 + tp2 + tp3 + tp4 + tp5 + tp6;
         var fin = document.getElementById("show").innerHTML;
         localStorage.setItem("div7",fin);
