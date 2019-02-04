@@ -132,39 +132,42 @@ var total = x * p5;
       function transfer() {
         
          var x = document.getElementById('quant').value;
-var total = x * p;
+var total1 = x * p;
    var t = total * tax;
    var at = total + t;
    tp1 = at.toFixed(2);
-          var x = document.getElementById('quant2').value;
-var total = x * p2;
-   var t = total * tax;
-   var at = total + t;
-        tp2 = at.toFixed(2);
-        var x = document.getElementById('quant3').value;
-var total = x * p3;
-   var t = total * tax;
-   var at = total + t;
-            tp1 = at.toFixed(2);
-         function display4() {
-      var x = document.getElementById('quant4').value;
-var total = x * p4;
-   var t = total * tax;
-   var at = total + t;
-            tp4 = at.toFixed(2);
+        
+          var x2 = document.getElementById('quant2').value;
+var total2 = x2 * p2;
+   var t2 = total * tax;
+   var at2 = total + t2;
+        tp2 = at2.toFixed(2);
+        
+        var x3 = document.getElementById('quant3').value;
+var total3 = x3 * p3;
+   var t3 = total3 * tax;
+   var at3 = total3 + t3;
+            tp3 = at.toFixed(2);
+       
+      var x4 = document.getElementById('quant4').value;
+var total4 = x4 * p4;
+   var t4 = total4 * tax;
+   var at4 = total4 + t4;
+            tp4 = at4.toFixed(2);
         
         
-            var x = document.getElementById('quant5').value;
-var total = x * p5;
-   var t = total * tax;
-   var at = total + t;
-                  tp5 = at.toFixed(2);
+            var x5 = document.getElementById('quant5').value;
+var total5 = x5 * p5;
+   var t5 = total5 * tax;
+   var at5 = total5 + t5;
+                  tp5 = at5.toFixed(2);
         
         
-         var x = document.getElementById('quant6').value;
-       var total = x * p6;
-   var t = total * tax;
-   var at = total + t;
+         var x6 = document.getElementById('quant6').value;
+       var total6 = x6 * p6;
+   var t6 = total6 * tax;
+   var at6 = total6 + t6;
+         tp6 = at6.toFixed(2);
         var grandtotal = tp1 + tp2 + tp3 + tp4 + tp5 + tp6;
         var fin = document.getElementById("show").innerHTML;
         localStorage.setItem("div7",fin);
