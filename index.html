@@ -168,7 +168,9 @@ var total5 = x5 * p5;
    var t6 = total6 * tax;
    var at6 = total6 + t6;
          tp6 = at6.toFixed(2);
+        
         var grandtotal = tp1 + tp2 + tp3 + tp4 + tp5 + tp6;
+        var grandtotal = grandtotal.toFixed(2);
         var fin = document.getElementById("show").innerHTML;
         localStorage.setItem("div7",fin);
         localStorage.setItem("gt",grandtotal);
