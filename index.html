@@ -12,77 +12,62 @@
         width: 25vw;
         height:35vh;
         padding: 10px;
-        border: 5px solid gray;
         float:left;
         background-image:url("ultimate-southern-style-burger-2-2.jpg");
           background-size:cover;
           
-
      }
      .div2{
-       background-color:red;
+       background-color:orange;
         width: 25vw;
         height:35vh;
         padding: 10px;
-        border: 5px solid gray;
         float:left;
         background-image:url("Untitled image (4).jpg");
           background-size:cover;
-
      }
      .div3{
        background-color:red;
         width: 25vw;
         height:35vh;
         padding: 10px;
-        border: 5px solid gray;
         float:left;
          background-image:url("Teriyaki-Burgers-recipe-600x585.jpg ");
           background-size:cover;
-
      }
      .div4{
-       background-color:red;
+       background-color:orange;
         width: 25vw;
         height:35vh;
         padding: 10px;
-        border: 5px solid gray;
         float:left;
                 background-image:url("this-is-britains-biggest-burger-1-2773.jpg");
           background-size:cover;
-
      }
      .div5{
        background-color:red;
         width: 25vw;
         height:35vh;
         padding: 10px;
-        border: 5px solid gray;
         float:left;
          background-image:url("Untitled image (5).jpg  ");
           background-size:cover;
-
      }
      .div6{
-       background-color:red;
+       background-color:orange;
         width: 25vw;
         height:35vh;
         padding: 10px;
-        border: 5px solid gray;
         float:left;
         background-image:url("baked-bacon-cheeseburger-sliders-8-of-11.jpg   ");
         background-size:cover;
-
      }
      
      .div7{
-       background-color:red;
-        width: 17.1vw;
-        height:78.2vh;
-        border: 5px solid gray;
-        position:absolute;
-   top:66;
-   right:0;
+       background-color:maroon;
+        width: 75vw;
+        height:30vh;
+        float:left;
 
      }
    </style>
@@ -129,7 +114,6 @@
   var $ = document
   var fp = [ ];
   var fn = [ ];
-
       var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if(this.readyState == 4 && this.status == 200) {
@@ -144,7 +128,6 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "menu.json" , true);
 xmlhttp.send();
-
   function option1(){
    var userChoice = fp.value;
    var newList = $.createElement('ol');
