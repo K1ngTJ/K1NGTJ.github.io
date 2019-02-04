@@ -15,25 +15,25 @@
  }
  ,
  {  "name":"Hawaiian Burger",
-   "price":11.48,
+   "price":10.35,
     "tax": 0.04712
 
  }
  ,
 {  "name":"Biggest Burger",
-   "price":16.85,
+   "price":85.95,
    "tax": 0.04712
 
  }
  ,
   {  "name":"Triple Stack Burger",
-   "price":11.48,
+   "price":14.85,
    "tax": 0.04712
 
  }
  ,
 {  "name":"Melted Burger",
-   "price":11.48,
+   "price":8.75,
    "tax": 0.04712
    
  }
