@@ -1,11 +1,143 @@
 <html>
   <head>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous">
-  </script>
-  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <script>
+      var p;
+      var p2;
+      var p3;
+      var p4;
+      var p5;
+      var p6;
+      var tax;
+      var tp1;
+      var tp2;
+      var tp3;
+      var tp4;
+      var tp5;
+      var tp6;
+      var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if(this.readyState == 4 && this.status == 200) {
+             var mydata = JSON.parse(this.responseText);
+    document.getElementById('food').innerHTML = mydata.food[0].name;
+        document.getElementById('price').innerHTML =  "$"+ mydata.food[0].price;
+    document.getElementById('food2').innerHTML = mydata.food[1].name;
+        document.getElementById('price2').innerHTML =  "$"+ mydata.food[1].price;
+    document.getElementById('food3').innerHTML = mydata.food[2].name;
+        document.getElementById('price3').innerHTML =  "$"+ mydata.food[2].price;
+      document.getElementById('food4').innerHTML = mydata.food[3].name;
+        document.getElementById('price4').innerHTML =  "$"+ mydata.food[3].price;
+     document.getElementById('food5').innerHTML = mydata.food[4].name;
+        document.getElementById('price5').innerHTML =  "$"+ mydata.food[4].price;
+     document.getElementById('food6').innerHTML = mydata.food[5].name;
+        document.getElementById('price6').innerHTML =  "$"+ mydata.food[5].price;
+   p = mydata.food[0].price;
+   p2 = mydata.food[1].price;
+   p3 = mydata.food[2].price;
+   p4= mydata.food[3].price;
+   p5 = mydata.food[4].price;
+   p6 = mydata.food[5].price;
+   tax = mydata.food[0].tax
+  }
+};
+xmlhttp.open("GET", "menu.json" , true);
+xmlhttp.send();
+
+
+
+function display() {
+      var x = document.getElementById('quant').value;
+var total = x * p;
+   var t = total * tax;
+   var at = total + t;
+   tp1 = at.toFixed(2);
+var list = "That will cost $" + at.toFixed(2) + " for your Southern Burger";
+     document.getElementById('quant').disabled= true;
+   var li= document.createElement('li');//creates a lists
+     var newText=document.createTextNode(list);// gets total and saves it as newtext
+     li.appendChild(newText);//puts newtext and total together
+     var olTag=document.getElementById("show");//
+     olTag.appendChild(li);
+ }
+   function display2() {
+      var x = document.getElementById('quant2').value;
+var total = x * p2;
+   var t = total * tax;
+   var at = total + t;
+        tp2 = at.toFixed(2);
+     var list2 = "That will cost $" + at.toFixed(2) + " for your Golden Burger";
+     document.getElementById('quant2').disabled= true;
+      var li= document.createElement('li');//creates a lists
+     var newText=document.createTextNode(list2);// gets total and saves it as newtext
+     li.appendChild(newText);//puts newtext and total together
+     var olTag=document.getElementById("show");//
+     olTag.appendChild(li);
+ }
+       function display3() {
+      var x = document.getElementById('quant3').value;
+var total = x * p3;
+   var t = total * tax;
+   var at = total + t;
+            tp1 = at.toFixed(3);
+         var list3 = "That will cost $" + at.toFixed(2) + "for your Hawaiian Burger";
+     document.getElementById('quant3').disabled=true;
+          var li= document.createElement('li');//creates a lists
+     var newText=document.createTextNode(list3);// gets total and saves it as newtext
+     li.appendChild(newText);//puts newtext and total together
+     var olTag=document.getElementById("show");//
+     olTag.appendChild(li);
+ }
+       function display4() {
+      var x = document.getElementById('quant4').value;
+var total = x * p4;
+   var t = total * tax;
+   var at = total + t;
+            tp4 = at.toFixed(2);
+         var list4 = "That will cost $" + at.toFixed(2) + "for your Biggest Burger";
+     document.getElementById('quant4').disabled = true;
+          var li= document.createElement('li');//creates a lists
+     var newText=document.createTextNode(list4);// gets total and saves it as newtext
+     li.appendChild(newText);//puts newtext and total together
+     var olTag=document.getElementById("show");//
+     olTag.appendChild(li);
+ }
+             function display5() {
+      var x = document.getElementById('quant5').value;
+var total = x * p5;
+   var t = total * tax;
+   var at = total + t;
+                  tp5 = at.toFixed(2);
+               var list5 = "That will cost $" + at.toFixed(2) + " for your Triple Stack Burger";
+     document.getElementById('quant5').disabled = true;
+                var li= document.createElement('li');//creates a lists
+     var newText=document.createTextNode(list5);// gets total and saves it as newtext
+     li.appendChild(newText);//puts newtext and total together
+     var olTag=document.getElementById("show");//
+     olTag.appendChild(li);
+ }
+        function display6() {
+      var x = document.getElementById('quant6').value;
+var total = x * p6;
+   var t = total * tax;
+   var at = total + t;
+             tp6 = at.toFixed(2);
+          var list6 = "That will cost $" + at.toFixed(2) + " for your Melted Burger";
+     document.getElementById('quant6').disabled = true;
+           var li= document.createElement('li');//creates a lists
+     var newText=document.createTextNode(list6);// gets total and saves it as newtext
+     li.appendChild(newText);//puts newtext and total together
+     var olTag=document.getElementById("show");//
+     olTag.appendChild(li);
+ }
+      function transfer() {
+        var grandtotal = tp1 + tp2 + tp3 + tp4 + tp5 + tp6;
+      var fin = document.getElementById("show").innerHTML;
+        localStorage.setItem("div7",fin);
+                localStorage.setItem("gt",grandtotal);
+        location.href = "finalized.html";
+      }
+      
+    </script>
    <style>
      .div1{
        background-color:red;
@@ -76,73 +208,40 @@
   <body>
     <h1> BURGER COMPANY</h1>
     <div class="div1">
-    <input type = "text" id="userChoice1">
-    <button onclick="option1() " >BUY</button>
+    <input type = "text" id="quant">
+    <button onclick="display() " >BUY</button>
 
     </div>
     <div class="div2">
-    <input type = "text" id="userChoice">
-    <button class="Golden Burger">BUY</button>
+    <input type = "text" id="quant2">
+    <button onclick="display2() " >BUY</button>
 
       
     </div>
     <div class="div3">
-    <input type = "text" id="userChoice">
-    <button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="quant3">
+    <button onclick="display3() " >BUY</button>
 
     </div>
     <div class="div4">
-    <input type = "text" id="userChoice">
-    <button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="quant4">
+    <button onclick="display4() " >BUY</button>
 
     </div>
     <div class="div5">
-    <input type = "text" id="userChoice">
-        <button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="quant5">
+    <button onclick="display5() " >BUY</button>
 
     </div>
     <div class="div6">
-    <input type = "text" id="userChoice">
-    <button class="Hawaiian Burger">BUY</button>
+    <input type = "text" id="quant6">
+    <button onclick="display6() " >BUY</button>
 
     </div>
     <div class="div7">
-      <p id="Reciept"></p>
+       <h1>List</h1>
+    <ol id = "show"></ol>
+    <button onclick = "transfer()">Finalize</button>
     </div>
-    
-    
-    
-    
-    
-  
-  <script>
-  var $ = document
-  var fp = [ ];
-  var fn = [ ];
- 
-
-  function option1(){
-   var userChoice = fp.value;
-   var newList = $.createElement('ol');
-   var newText = $.createTextNode(userChoice1);
-   newList.appendChild(newText);
-   var position = $.getElementById("Reciept");
-   position.appendChild(newList);
-  }
-  
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if(this.readyState == 4 && this.status == 200) {
-   var mydata = JSON.parse(this.responseText);
-  for(var i=0;i<mydata.food.length;i++);{
-  fn.push(mydata.food[i].name);
-  fp.push(mydata.food[i].price);
-  $.createElement('p');
-  text.createTextNode('')
-}
-};
-xmlhttp.open("GET", "menu.json" , true);
-xmlhttp.send();
-    </script>
   </body>
   </html>
