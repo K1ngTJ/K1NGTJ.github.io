@@ -4,38 +4,38 @@
   
 {  "name":"Southern Burger",
    "price":11.48,
-   "Pounds":0.5,
-   "Sides":["Fries"]
+   "tax": 0.04712
+
  }
  ,
 {  "name":"Golden Burger",
    "price":105.84,
-   "Pounds":0.5,
-   "Sides":["Onion rings"]
+   "tax": 0.04712
+
  }
  ,
  {  "name":"Hawaiian Burger",
    "price":11.48,
-   "Pounds":0.5,
-   "Sides":["Fries"]
+    "tax": 0.04712
+
  }
  ,
 {  "name":"Biggest Burger",
    "price":16.85,
-   "Pounds":1.23,
-   "Sides":["Waffle Fries"]
+   "tax": 0.04712
+
  }
  ,
-  {  "name":"Southern Burger",
+  {  "name":"Triple Stack Burger",
    "price":11.48,
-   "Pounds":0.5,
-   "Sides":["Fries"]
+   "tax": 0.04712
+
  }
  ,
-{  "name":"Golden Burger",
+{  "name":"Melted Burger",
    "price":11.48,
-   "Pounds":0.5,
-   "Sides":["Waffle Fries"]
+   "tax": 0.04712
+   
  }
   
   
