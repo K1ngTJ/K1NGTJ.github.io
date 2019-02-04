@@ -1,6 +1,25 @@
 <html>
-  
-  
-  
-  
+  <head>
+    <style>
+       body {
+      
+      }
+      #reciept {
+       width:40vw;
+       height:100vh;
+        background-color:green;
+      }
+   
+    </style>
+  </head>
+  <body>  
+  <div id = "reciept">
+    <h2>You Pay</h2>
+    <h4 id = "items"></h4>  
+  <script>
+ var y = localStorage.getItem("list");
+ document.getElementById("items").innerHTML=y;
+    </script>
+    </div>
+  </body>
 </html>
