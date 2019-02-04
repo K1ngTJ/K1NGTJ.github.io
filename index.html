@@ -66,7 +66,7 @@
      .div7{
        background-color:maroon;
         width: 75vw;
-        height:30vh;
+        height:35vh;
         float:left;
 
      }
@@ -110,24 +110,17 @@
       <p id="Reciept"></p>
     </div>
     
+    
+    
+    
+    
+  
   <script>
   var $ = document
   var fp = [ ];
   var fn = [ ];
-      var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if(this.readyState == 4 && this.status == 200) {
-    var mydata = JSON.parse(this.responseText);
-  for(var i=0;i<mydata.food.length;i++);{
-  fn.push(mydata.food[i].name);
-  fp.push(mydata.food[i].price);
-  $.createElement('p');
-  text.createTextNode('')
-  
-}
-};
-xmlhttp.open("GET", "menu.json" , true);
-xmlhttp.send();
+ 
+
   function option1(){
    var userChoice = fp.value;
    var newList = $.createElement('ol');
@@ -136,6 +129,20 @@ xmlhttp.send();
    var position = $.getElementById("Reciept");
    position.appendChild(newList);
   }
+  
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if(this.readyState == 4 && this.status == 200) {
+   var mydata = JSON.parse(this.responseText);
+  for(var i=0;i<mydata.food.length;i++);{
+  fn.push(mydata.food[i].name);
+  fp.push(mydata.food[i].price);
+  $.createElement('p');
+  text.createTextNode('')
+}
+};
+xmlhttp.open("GET", "menu.json" , true);
+xmlhttp.send();
     </script>
   </body>
   </html>
