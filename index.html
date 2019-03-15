@@ -1,305 +1,208 @@
 <html>
-  <head>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
- <script>
-      var p;
-      var p2;
-      var p3;
-      var p4;
-      var p5;
-      var p6;
-      var tax;
-      var tp1;
-      var tp2;
-      var tp3;
-      var tp4;
-      var tp5;
-      var tp6;
-      var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if(this.readyState == 4 && this.status == 200) {
-             var mydata = JSON.parse(this.responseText);
-    document.getElementById('food').innerHTML = mydata.food[0].name;
-    document.getElementById('price').innerHTML =  "$"+ mydata.food[0].price;
-    document.getElementById('food2').innerHTML = mydata.food[1].name;
-    document.getElementById('price2').innerHTML =  "$"+ mydata.food[1].price;
-    document.getElementById('food3').innerHTML = mydata.food[2].name;
-    document.getElementById('price3').innerHTML =  "$"+ mydata.food[2].price;
-    document.getElementById('food4').innerHTML = mydata.food[3].name;
-    document.getElementById('price4').innerHTML =  "$"+ mydata.food[3].price;
-    document.getElementById('food5').innerHTML = mydata.food[4].name;
-    document.getElementById('price5').innerHTML =  "$"+ mydata.food[4].price;
-    document.getElementById('food6').innerHTML = mydata.food[5].name;
-    document.getElementById('price6').innerHTML =  "$"+ mydata.food[5].price;
-   p = mydata.food[0].price;
-   p2 = mydata.food[1].price;
-   p3 = mydata.food[2].price;
-   p4= mydata.food[3].price;
-   p5 = mydata.food[4].price;
-   p6 = mydata.food[5].price;
-   tax = mydata.food[0].tax
+<head>
+  <script src="p5.min.js"></script>
+  <script src="p5.collide2d.min.js"></script>
+  <style>
+  body{
+  overflow:hidden;
+  margin:0;
+  padding:0;
   }
-};
-xmlhttp.open("GET", "menu.json" , true);
-xmlhttp.send();
+  </style>
+</head>
+<body>
+
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+//Create a new object globally called new ball
+var ball = new ball();
+var bball = new bball();
+var line1 = new line1();
+var line2 = new line2();
+var line3 = new line3();
+var line4 = new line4();
+var line5 = new line5();
+
+var end = new end();
+var bbx =25;
+var bby = 340;
+var l1 =340;
+var l2 = 25;
+var bbx1 = 15;
+var bby1 = 15;
+var power2 = 20;
+var power1 = 400;
+var $ = document;
+var hit = false;
+var hit2 = false;
+var hit3 = false;
+var hit4 = false;
+var hit5 = false;
+var hit6 = false;
+var hit7 = false;
+
+let bg;
 
 
+  function setup() {
+  createCanvas(w, h);
+  bg = loadImage('lion.jpg'); 
+  }
+  function draw() {
+  background(255);
+  
+  ball.show();
+  ball.move();
+  bball.show();
+  line1.show();
+  line2.show();
+  line3.show();
+  line4.show();
+  line5.show();
+  end.show();
+  line5.kill();
+  line5.win();
+  hit = collideRectCircle(line1.x,line1.y,bbx,bby,ball.x,ball.y,bbx1,bby1);
+  hit2 = collideRectCircle(line2.x,line2.y,bbx,bby,ball.x,ball.y,bbx1,bby1);
+  hit3 = collideRectCircle(line3.x,line3.y,bbx,bby,ball.x,ball.y,bbx1,bby1);
+  hit4 = collideRectCircle(line4.x,line4.y,bbx,bby,ball.x,ball.y,bbx1,bby1);
+  hit5 = collideRectCircle(line5.x,line5.y,bbx,bby,ball.x,ball.y,bbx1,bby1);
+  hit6 = collideRectCircle(end.x,end.y,power2,power1,ball.x,ball.y,bbx1,bby1);
+  hit7 = collideRectCircle(bball.x,bball.y,l1,l2,ball.x,ball.y,bbx1,bby1);
 
-function display() {
-      var x = document.getElementById('quant').value;
-var total = x * p;
-   var t = total * tax;
-   var at = total + t;
-   tp1 = at.toFixed(2);
-var list = "That will cost $" + at.toFixed(2) + " for your Southern Burger";
-     document.getElementById('quant').disabled= true;
-   var li= document.createElement('li');//creates a lists
-     var newText=document.createTextNode(list);// gets total and saves it as newtext
-     li.appendChild(newText);//puts newtext and total together
-     var olTag=document.getElementById("show");//
-     olTag.appendChild(li);
- }
-   function display2() {
-      var x = document.getElementById('quant2').value;
-var total = x * p2;
-   var t = total * tax;
-   var at = total + t;
-        tp2 = at.toFixed(2);
-     var list2 = "That will cost $" + at.toFixed(2) + " for your Golden Burger";
-     document.getElementById('quant2').disabled= true;
-      var li= document.createElement('li');//creates a lists
-     var newText=document.createTextNode(list2);// gets total and saves it as newtext
-     li.appendChild(newText);//puts newtext and total together
-     var olTag=document.getElementById("show");//
-     olTag.appendChild(li);
- }
-       function display3() {
-      var x = document.getElementById('quant3').value;
-var total = x * p3;
-   var t = total * tax;
-   var at = total + t;
-            tp1 = at.toFixed(3);
-         var list3 = "That will cost $" + at.toFixed(2) + "for your Hawaiian Burger";
-     document.getElementById('quant3').disabled=true;
-          var li= document.createElement('li');//creates a lists
-     var newText=document.createTextNode(list3);// gets total and saves it as newtext
-     li.appendChild(newText);//puts newtext and total together
-     var olTag=document.getElementById("show");//
-     olTag.appendChild(li);
- }
-       function display4() {
-      var x = document.getElementById('quant4').value;
-var total = x * p4;
-   var t = total * tax;
-   var at = total + t;
-            tp4 = at.toFixed(2);
-         var list4 = "That will cost $" + at.toFixed(2) + "for your Biggest Burger";
-     document.getElementById('quant4').disabled = true;
-          var li= document.createElement('li');//creates a lists
-     var newText=document.createTextNode(list4);// gets total and saves it as newtext
-     li.appendChild(newText);//puts newtext and total together
-     var olTag=document.getElementById("show");//
-     olTag.appendChild(li);
- }
-             function display5() {
-      var x = document.getElementById('quant5').value;
-var total = x * p5;
-   var t = total * tax;
-   var at = total + t;
-                  tp5 = at.toFixed(2);
-               var list5 = "That will cost $" + at.toFixed(2) + " for your Triple Stack Burger";
-     document.getElementById('quant5').disabled = true;
-                var li= document.createElement('li');//creates a lists
-     var newText=document.createTextNode(list5);// gets total and saves it as newtext
-     li.appendChild(newText);//puts newtext and total together
-     var olTag=document.getElementById("show");//
-     olTag.appendChild(li);
- }
-        function display6() {
-       var x = document.getElementById('quant6').value;
-       var total = x * p6;
-   var t = total * tax;
-   var at = total + t;
-             tp6 = at.toFixed(2);
-          var list6 = "That will cost $" + at.toFixed(2) + " for your Melted Burger";
-     document.getElementById('quant6').disabled = true;
-           var li= document.createElement('li');//creates a lists
-     var newText=document.createTextNode(list6);// gets total and saves it as newtext
-     li.appendChild(newText);//puts newtext and total together
-     var olTag=document.getElementById("show");//
-     olTag.appendChild(li);
- }
-      function transfer() {
-        
-         var x = document.getElementById('quant').value;
-var total = x * p;
-   var t = total * tax;
-   var at = total + t;
-   tp1 = at.toFixed(2);
-        
-          var x2 = document.getElementById('quant2').value;
-var total2 = x2 * p2;
-   var t2 = total * tax;
-   var at2 = total + t2;
-        tp2 = at2.toFixed(2);
-        
-        var x3 = document.getElementById('quant3').value;
-var total3 = x3 * p3;
-   var t3 = total3 * tax;
-   var at3 = total3 + t3;
-            tp3 = at.toFixed(2);
-       
-      var x4 = document.getElementById('quant4').value;
-var total4 = x4 * p4;
-   var t4 = total4 * tax;
-   var at4 = total4 + t4;
-            tp4 = at4.toFixed(2);
-        
-        
-            var x5 = document.getElementById('quant5').value;
-var total5 = x5 * p5;
-   var t5 = total5 * tax;
-   var at5 = total5 + t5;
-                  tp5 = at5.toFixed(2);
-        
-        
-         var x6 = document.getElementById('quant6').value;
-       var total6 = x6 * p6;
-   var t6 = total6 * tax;
-   var at6 = total6 + t6;
-         tp6 = at6.toFixed(2);
-        
-        var total =at6+at+at3+at4+at5+at2;
-        var grandtotal = total.toFixed(2);
-        var fin = document.getElementById("show").innerHTML;
-        localStorage.setItem("div7",fin);
-        localStorage.setItem("gt",grandtotal);
-        location.href = "2nd.html";
-      }
-      
-    </script>
-   <style>
-     .div1{
-       background-color:red;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        float:left;
-        background-image:url("southernburger.jpg");
-          background-size:cover;
-          
-     }
-     .div2{
-       background-color:orange;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        float:left;
-        background-image:url("golden.jpg");
-          background-size:cover;
-     }
-     .div3{
-       background-color:red;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        float:left;
-         background-image:url("hawaiian.jpg ");
-          background-size:cover;
-     }
-     .div4{
-       background-color:orange;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        float:left;
-                background-image:url("big.jpg");
-          background-size:cover;
-     }
-     .div5{
-       background-color:red;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        float:left;
-         background-image:url("triple.jpg  ");
-          background-size:cover;
-     }
-     .div6{
-       background-color:orange;
-        width: 25vw;
-        height:35vh;
-        padding: 10px;
-        float:left;
-        background-image:url("pattymelt.jpg   ");
-        background-size:cover;
-     }
+
+  print("colliding? " + hit);
+  print("colliding2? " + hit2);
+  print("colliding3? " + hit3);
+  print("colliding4? " + hit4);
+  print("colliding5? " + hit5);
+  print("colliding6? " + hit6);
+
+}
+  
+  function end(){
+    this.x = 355;
+    this.y = 0;
+    this.show = function(){
+       fill(color('green'));
+  rect(this.x,this.y,power2,power1);
+    }
+   
+  }
+
+  
+  
+  
+    function ball() {
+  this.x = 0;
+  this.y = 0;
+  this.show = function(){
+  fill(color('red'));
+  circle(this.x,this.y,10);
+   
+  };
+   
+   this.move = function(){
      
-     .div7{
-       background-color:maroon;
-        width: 75vw;
-        height:35vh;
-        float:left;
+  if ((keyIsDown(68)) && (this.x < w - bbx1)){
+    this.x += 4;
+  }
+   //Right arrow, on press move right 10 pixels
+  if ((keyIsDown(83)) && (this.y < h - bby1)){
+    this.y += 4;
+  }
+   //Left arrow, on press move left 10 pixels
+  if ((keyIsDown(65)) && (this.x > 0)){
+    this.x += -4;
+  }
+   //Down arrow, on press move down 10 pixels
+  if ((keyIsDown(87))&& (this.y > 0)){
+    this.y += -4;
+}
+   }
+   
+   
+  }
+  
+  
+  
+   function bball() {
+  this.x = 0;
+  this.y = 375;
+  this.show = function(){
+  fill(color('red'));
+  rect(this.x,this.y,l1,l2);
+   };
+   
+   
+  }
+   function line1() {
+  this.x = 265;
+  this.y = 0;
+  this.show = function(){
+  fill(color('red'));
+  rect(this.x,this.y,bbx,bby);
+   };
+   
+   
+  }
+   function line2() {
+  this.x = 140;
+  this.y = 0;
+  this.show = function(){
+  fill(color('red'));
+  rect(this.x,this.y,bbx,bby);
+   };
+   
+   
+  }
+   function line3() {
+  this.x = 15;
+  this.y = 0;
+  this.show = function(){
+  fill(color('red'));
+  rect(this.x,this.y,bbx,bby);
+   };
+   
+   
+  }
+   function line4() {
+  this.x = 83;
+  this.y = 35;
+  this.show = function(){
+  fill(color('red'));
+  rect(this.x,this.y,bbx,bby);
+   };
+   
+   
+  }
+   function line5() {
+  this.x = 210;
+  this.y = 35;
+  var diam = 15;
+  this.show = function(){
+  fill(color('red'));
+  rect(this.x,this.y,bbx,bby);
+   };
+   this.kill = function(){ 
+    if((hit == true) ||(hit2 == true)||(hit3 == true)||(hit4 == true)||(hit5 == true)||(hit7 == true)){
+    background(bg);
+    noLoop();
+  }
 
-     }
-     h2{
-       color:red;
-     }
-      h3{
-       color:red;
-     }
-   </style>
-    
-  </head>
-  <body>
-    <h1> BURGER COMPANY</h1>
-    <div class="div1">
-    <input type = "number" id="quant" min="1" max="5">
-    <button onclick="display() " >BUY</button>
-     <h2 id = "food"></h2>
-<h3 id = "price"></h3>
+  };
+  this.win = function(){
+    if(hit6 == true) {
+window.alert("YOU WIN");
+    noLoop();
+  };
+  }
+  
 
-    </div>
-    <div class="div2">
-    <input type = "number" id="quant2" min="1" max="5">
-    <button onclick="display2() " >BUY</button>
-    <h2 id = "food2"></h2>
-    <h3 id = "price2"></h3>
-
-      
-    </div>
-    <div class="div3">
-    <input type = "number" id="quant3" min="1" max="5">
-    <button onclick="display3() " >BUY</button>
-     <h2 id = "food3"></h2>
-<h3 id = "price3"></h3>
-
-    </div>
-    <div class="div4">
-    <input type = "number" id="quant4" min="1" max="5">
-    <button onclick="display4() " >BUY</button>
-     <h2 id = "food4"></h2>
-<h3 id = "price4"></h3>
-
-    </div>
-    <div class="div5">
-    <input type = "number" id="quant5" min="1" max="5">
-    <button onclick="display5() " >BUY</button>
-     <h2 id = "food5"></h2>
-<h3 id = "price5"></h3>
-
-    </div>
-    <div class="div6">
-    <input type = "number" id="quant6" min="1" max="5">
-    <button onclick="display6() " >BUY</button>
-     <h2 id = "food6"></h2>
-<h3 id = "price6"></h3>
-
-    </div>
-    <div class="div7">
-       <h1>List</h1>
-    <ol id = "show"></ol>
-    <button onclick = "transfer()">Finalize</button>
-    </div>
-  </body>
-  </html>
+   }
+  
+  
+</script>
+</body>
+</html>
