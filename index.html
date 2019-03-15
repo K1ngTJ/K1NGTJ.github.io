@@ -23,8 +23,9 @@ var line2 = new line2();
 var line3 = new line3();
 var line4 = new line4();
 var line5 = new line5();
-
 var end = new end();
+
+let timer = 20;
 var bbx =25;
 var bby = 340;
 var l1 =340;
@@ -78,6 +79,22 @@ let bg;
   print("colliding4? " + hit4);
   print("colliding5? " + hit5);
   print("colliding6? " + hit6);
+
+  textSize(25);
+  text(timer, 900, 500, );
+  text("DONT LET THE TIME HIT ZERO",500, 500, );
+
+
+  
+  
+  
+  if (frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+    timer --;
+  }
+  if (timer == 0) {
+    text("GAME OVER");
+  }
+  
 
 }
   
@@ -206,3 +223,4 @@ window.alert("YOU WIN");
 </script>
 </body>
 </html>
+
