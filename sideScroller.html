@@ -1,6 +1,8 @@
 <html>
   <head>
-  <script src="p5.min.js"></script>
+      <script src="p5.min.js"></script>
+      <script src="p5.collide2d.min.js"></script>
+
  <style>
   body{
   overflow:hidden;
@@ -11,11 +13,17 @@
   </head>
   <body>
     
-    
     <script>
 var w = window.innerWidth;
 var h = window.innerHeight;
 var jumper = new jumper();
+var barrier = new barrier();
+var hit = false;
+var balll = 50;
+var d1 = 50;
+var d2 = 50;
+var rand = Math.floor(Math.random()*300);
+var counterr = 0;
 
 
       function setup(){
@@ -25,33 +33,39 @@ var jumper = new jumper();
         background(0);
         jumper.show();
         jumper.update();
+        barrier.show();
+        barrier.update();
+        barrier.kill();
+        hit = collideRectCircle(jumper.x,jumper.y-10,balll-20,40,barrier.x,barrier.y,200,200)
+        print("colliding? " + hit);
       }
       function jumper() {
         this.x = 50;
         this.y = 0;
-        this.gravity = 0.1; //Force of gravity
+        this.gravity = 0.9; //Force of gravity
         this.lift = -10;
         this.velocity = 0;
         
+        
         this.show = function(){
           fill(color('red'));
-          ellipse(this.x,this.y,50,50);
+          ellipse(this.x,this.y,balll);
         }
         
         this.up = function(){
           this.velocity += this.lift;
           
         }
-        this.update = function(){
+        this.update = function() {
           this.velocity += this.gravity;
           this.y += this.velocity;
           this.velocity *= 0.8;
-          if(this.y > h){
-            this.y = h;
+          if(this.y > w){
+            this.x = w;
             this.velocity = 0;
             
           }
-          if(this.y < 0){
+          if(this.y < 0) {
             this.y = 0;
             this.velocity = 0;
           }
@@ -59,11 +73,52 @@ var jumper = new jumper();
         }
       }
       
-      function keyPressed(){
+      function keyPressed() {
         if(keyCode == 32){
           jumper.up();
         }
       }
+      
+           function barrier() {
+        this.x = w;
+        this.y = 500;
+        
+        this.gravity = 2; //Force of gravity
+        this.velocity = 0;
+         
+        this.show = function() {
+          fill(color('red'));
+          rect(this.x,this.y,200,200);
+        }
+        
+       
+        this.update = function()  {
+          this.velocity += this.gravity;
+          this.x -= this.velocity;
+        
+          if(this.x < 0){ counterr += 1;
+          this.x= w;
+            this.velocity = 0;
+           
+            document.getElementById("COUNTER").innerHTML = "COUNTER: " + counterr;
+
+          }
+          if(counterr === 5){
+            window.alert("YOU WIN")
+          }
+          
+        }
+        this.kill = function() {
+         if(hit === true){
+          noLoop();
+          window.alert("You Lose");
+          }
+          }
+ }
+      
+
     </script>
+        <p id="COUNTER">COUNTER:</p>
+
   </body>
 </html>
