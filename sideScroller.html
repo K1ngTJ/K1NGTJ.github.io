@@ -20,25 +20,31 @@ var jumper = new jumper();
 var barrier = new barrier();
 var hit = false;
 var balll = 50;
-var d1 = 50;
-var d2 = 50;
 var rand = Math.floor(Math.random()*300);
+var rand2 = Math.floor(Math.random()*100-300);
+var rand3 = Math.floor(Math.random()*100-300);
 var counterr = 0;
-
-
       function setup(){
         createCanvas(w,h);
       }
       function draw() {
+
         background(0);
         jumper.show();
         jumper.update();
         barrier.show();
         barrier.update();
         barrier.kill();
-        hit = collideRectCircle(jumper.x,jumper.y-10,balll-20,40,barrier.x,barrier.y,200,200)
+        hit = collideRectCircle(barrier.x,barrier.y,rand2,rand3,jumper.x,jumper.y,balll)
         print("colliding? " + hit);
+        textSize(30);
+          fill(color("white"));
+          text("Score: " + counterr,25, 30);
+      
+               
+          
       }
+
       function jumper() {
         this.x = 50;
         this.y = 0;
@@ -60,8 +66,8 @@ var counterr = 0;
           this.velocity += this.gravity;
           this.y += this.velocity;
           this.velocity *= 0.8;
-          if(this.y > w){
-            this.x = w;
+          if(this.y > h){
+            this.y =h -50  ;
             this.velocity = 0;
             
           }
@@ -81,14 +87,14 @@ var counterr = 0;
       
            function barrier() {
         this.x = w;
-        this.y = 500;
+        this.y = rand;
         
-        this.gravity = 2; //Force of gravity
+        this.gravity = 0.2; //Force of gravity
         this.velocity = 0;
          
         this.show = function() {
           fill(color('red'));
-          rect(this.x,this.y,200,200);
+          rect(this.x,rand,rand2,rand3);
         }
         
        
@@ -96,29 +102,37 @@ var counterr = 0;
           this.velocity += this.gravity;
           this.x -= this.velocity;
         
-          if(this.x < 0){ counterr += 1;
+          if(this.x < 0){
+          counterr += 1;
           this.x= w;
-            this.velocity = 0;
-           
-            document.getElementById("COUNTER").innerHTML = "COUNTER: " + counterr;
-
+          this.velocity = 0;
+              textSize(30);
+          fill(color("white"));
+          text("Score: " + counterr,25, 30);
+      
+      
+  
           }
           if(counterr === 5){
-            window.alert("YOU WIN")
+            textSize(200);
+          fill(color("white"));
+          text("YOU WIN",25, 500, );
+            noLoop();
           }
           
         }
         this.kill = function() {
          if(hit === true){
           noLoop();
-          window.alert("You Lose");
+          textSize(200);
+          fill(color("white"));
+          text("GAME OVER",25, 500);
+
           }
           }
  }
       
-
     </script>
-        <p id="COUNTER">COUNTER:</p>
 
   </body>
 </html>
