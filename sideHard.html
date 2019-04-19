@@ -19,25 +19,27 @@ var h = window.innerHeight;
 var jumper = new jumper();
 var barrier = new barrier();
 var barrier2 = new barrier2();
+var barrier3 = new barrier3();
+var barrier4 = new barrier4();
 var hit = false;
 var hit2 = false;
+var hit3 = false;
+var hit4 = false;
 var balll = 50;
 var counterr = 0;
 var rand1 = Math.floor(Math.random()*200);
 var rand2 = Math.floor(Math.random()*200)+200;
-let img;
-let img2;
-let img3;
+var rand3 = Math.floor(Math.random()*200);
+var rand4 = Math.floor(Math.random()*200)+200;
+var rand5 = Math.floor(Math.random()*155)+50;
+var rand6 = Math.floor(Math.random()*155)+50;
+var rand7 = Math.floor(Math.random()*155)+50;
+var rand8 = Math.floor(Math.random()*155)+50;
       function setup(){
         createCanvas(w,h);
-        img = loadImage('village.jpg')
-        img2 = loadImage('kakashi.png')
-        img3 = loadImage('running.png')
-        img4 = loadImage('f.png')
-
       }
       function draw() {
-      background(img);
+      background(0);
       jumper.show();
       jumper.update();
       barrier.show();
@@ -46,9 +48,16 @@ let img3;
       barrier2.show();
       barrier2.update();
       barrier2.kill();
-      hit = collideRectRect(barrier.x,rand1,50,50,jumper.x,jumper.y,50,50);
-
-      hit2 = collideRectRect(barrier2.x,rand2,50,50,jumper.x,jumper.y,50,75);
+      barrier3.show();
+      barrier3.update();
+      barrier3.kill();
+      barrier4.show();
+      barrier4.update();
+      barrier4.kill();
+      hit = collideRectCircle(barrier.x,rand1,rand5,50,jumper.x,jumper.y,balll,50);
+      hit2 = collideRectCircle(barrier2.x,rand2,rand6,50,jumper.x,jumper.y,balll,50);
+      hit3 = collideRectCircle(barrier3.x,rand3,rand7,50,jumper.x,jumper.y,balll,50);
+      hit4 = collideRectCircle(barrier4.x,rand4,rand8,50,jumper.x,jumper.y,balll,50);
       print("colliding? " + hit);
       textSize(30);
       fill(color("white"));
@@ -64,7 +73,8 @@ let img3;
         
         
         this.show = function(){
-          image(img3,this.x,this.y,50,50  )
+          fill(color('red'));
+          ellipse(this.x,this.y,balll);
         }
         
         this.up = function(){
@@ -111,8 +121,8 @@ let img3;
         this.velocity = 0;
          
         this.show = function() {
-          image(img2 ,this.x,rand1,50,50  )
-
+          fill(color('red'));
+          rect(this.x,rand1,rand5,50);
         }
         
        
@@ -128,12 +138,13 @@ let img3;
           fill(color("white"));
           text("Score: " + counterr,25, 30);
           rand1 =  Math.floor(Math.random()*500)+155;
+          rand5 = Math.floor(Math.random()*100)+50;
 
       
       
   
           }
-          if(counterr === 5){
+          if(counterr === 40){
             textSize(200);
           fill(color("white"));
           text("YOU WIN",25, 500, );
@@ -159,13 +170,15 @@ let img3;
      this.velocity = 0;
         
       this.show = function() {
-        image(img4 ,this.x,rand2,50,50  )
-
+        fill(color('red'));
+        rect(this.x,rand2,rand6,50);
         }
       this.update = function()  {
         this.velocity += this.gravity;
         this.x -= this.velocity;
     if(this.x < 0){
+      counterr += 1;
+
       this.x= w;
       this.y = Math.floor(Math.random()*500);;
       this.velocity = 0;
@@ -173,8 +186,10 @@ let img3;
       fill(color("white"));
       text("Score: " + counterr,25, 30);
       rand2 =  Math.floor(Math.random()*500)+155;
+      rand6 = Math.floor(Math.random()*100)+50;
+
         }
-      if(counterr === 5){
+      if(counterr === 40){
         textSize(200);
         fill(color("white"));
         text("YOU WIN",25, 500, );
@@ -183,6 +198,114 @@ let img3;
         }
     this.kill = function() {
       if(hit2 === true){
+      noLoop();
+      textSize(85);
+      fill(color("white"));
+      text("GAME OVER HIT 'R' TO RESTART",15, 500);
+      }
+      }
+ }
+ function barrier3() {
+        this.x = w;
+        this.y = rand3;
+        this.gravity = 0.2; //Force of gravity
+        this.velocity = 0;
+         
+        this.show = function() {
+          fill(color('red'));
+          rect(this.x,rand3,rand7,50);
+        }
+        
+       
+        this.update = function()  {
+          this.velocity += this.gravity;
+          this.x -= this.velocity;
+        
+          if(this.x < 0){
+          counterr += 1;
+          this.x= w;
+          this.velocity = 0;
+              textSize(30);
+          fill(color("white"));
+          text("Score: " + counterr,25, 30);
+          rand3=  Math.floor(Math.random()*500)+155;
+          rand7 = Math.floor(Math.random()*100)+50;
+
+      
+      
+  
+          }
+          if(counterr === 40){
+            textSize(200);
+          fill(color("white"));
+          text("YOU WIN",25, 500, );
+            noLoop();
+          }
+          
+        }
+  this.kill = function() {
+    if(hit3 === true){
+    noLoop()
+    textSize(85);
+    fill(color("white"));
+    text("GAME OVER HIT 'R' TO RESTART",15, 500);
+    
+
+      }
+      }
+ }
+      function barrier4() {
+     this.x = w;
+     this.y = rand4;
+     this.gravity = 0.2; //Force of gravity
+     this.velocity = 0;
+        
+      this.show = function() {
+        fill(color('red'));
+        rect(this.x,rand4,rand8,50);
+        }
+      this.update = function()  {
+        this.velocity += this.gravity;
+        this.x -= this.velocity;
+    if(this.x < 0){
+      this.x= w;
+      counterr += 1;
+        rand8 = Math.floor(Math.random()*100)+50;
+
+      this.y = Math.floor(Math.random()*500);;
+      this.velocity = 0;
+      textSize(30);
+      fill(color("white"));
+      text("Score: " + counterr,25, 30);
+      rand4 =  Math.floor(Math.random()*500)+155;
+        }
+      if(counterr === 40){
+        textSize(200);
+        fill(color("white"));
+        text("YOU WIN",25, 500, );
+        noLoop();
+       
+
+        }
+        if(counterr > 20){
+       
+        barrier.velocity += 1.5;
+        barrier2.velocity +=1.5;
+        barrier3.velocity += 1.5;
+        barrier4.velocity += 1.5;
+
+        }
+        if(counterr > 25){
+       
+       barrier.velocity += 2.2;
+       barrier2.velocity +=2.2;
+       barrier3.velocity += 2.2;
+       barrier4.velocity += 2.2;
+
+       }
+        }
+    this.kill = function() {
+      if(hit4 === true){
       noLoop();
       textSize(85);
       fill(color("white"));
