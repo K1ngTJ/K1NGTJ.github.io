@@ -62,10 +62,12 @@ let img3;
       barrier4.show();
       barrier4.update();
       barrier4.kill();
-      hit = collideRectCircle(barrier.x,rand1,rand5,50,jumper.x,jumper.y,balll,50);
-      hit2 = collideRectCircle(barrier2.x,rand2,rand6,50,jumper.x,jumper.y,balll,50);
-      hit3 = collideRectCircle(barrier3.x,rand3,rand7,50,jumper.x,jumper.y,balll,50);
-      hit4 = collideRectCircle(barrier4.x,rand4,rand8,50,jumper.x,jumper.y,balll,50);
+   
+      hit = collideRectRect(barrier.x,rand1,rand5,50,jumper.x,jumper.y,50,50);
+      hit2 = collideRectRect(barrier2.x,rand2,rand6,50,jumper.x,jumper.y,50,50);
+      hit3 = collideRectRect(barrier3.x,rand3,rand7,50,jumper.x,jumper.y,50,50);
+      hit4 = collideRectRect(barrier4.x,rand4,rand8,50,jumper.x,jumper.y,50,50);
+
       print("colliding? " + hit);
       textSize(30);
       fill(color("white"));
@@ -117,7 +119,7 @@ let img3;
     
         }
         if(keyCode == 66){
-          window.location.replace("first1pg.html");
+          window.location.replace("index.html");
 
         }
       }
