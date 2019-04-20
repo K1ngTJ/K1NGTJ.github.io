@@ -127,8 +127,8 @@ let img3;
            function barrier() {
         this.x = w;
         this.y = rand1;
-        this.gravity = 0.2; //Force of gravity
-        this.velocity = 0;
+        this.gravity = 0.5; //Force of gravity
+        this.velocity = 1;
          
         this.show = function() {
                    image(img2 ,this.x,rand1,50,50  )
@@ -176,8 +176,8 @@ let img3;
       function barrier2() {
      this.x = w;
      this.y = rand2;
-     this.gravity = 0.2; //Force of gravity
-     this.velocity = 0;
+     this.gravity = 0.5; //Force of gravity
+     this.velocity = 0.5;
         
       this.show = function() {
                  image(img2 ,this.x,rand2,50,50  )
@@ -218,8 +218,8 @@ let img3;
  function barrier3() {
         this.x = w;
         this.y = rand3;
-        this.gravity = 0.2; //Force of gravity
-        this.velocity = 0;
+        this.gravity = 0.5; //Force of gravity
+        this.velocity = 2;
          
         this.show = function() {
                     image(img2 ,this.x,rand3,50,50  )
@@ -267,12 +267,12 @@ let img3;
       function barrier4() {
      this.x = w;
      this.y = rand4;
-     this.gravity = 0.2; //Force of gravity
-     this.velocity = 0;
+     this.gravity = 0.8; //Force of gravity
+     this.velocity = 0.2;
         
       this.show = function() {
-        fill(color('red'));
-        rect(this.x,rand4,rand8,50);
+                  image(img2 ,this.x,rand8,50,50  )
+
         }
       this.update = function()  {
         this.velocity += this.gravity;
