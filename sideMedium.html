@@ -55,9 +55,9 @@ let img3;
       barrier3.show();
       barrier3.update();
       barrier3.kill();
-      hit = collideRectCircle(barrier.x,rand1,50,50,jumper.x,jumper.y,balll,50);
-      hit2 = collideRectCircle(barrier2.x,rand2,50,150,jumper.x,jumper.y,balll,50);
-      hit3 = collideRectCircle(barrier3.x,rand3,150,75,jumper.x,jumper.y,balll,50);
+    hit = collideRectRect(barrier.x,rand1,50,50,jumper.x,jumper.y,50,50);
+    hit2 = collideRectRect(barrier2.x,rand2,50,50,jumper.x,jumper.y,50,50);
+    hit3 = collideRectRect(barrier.x,rand3,50,50,jumper.x,jumper.y,50,50);
 
       print("colliding? " + hit);
       textSize(30);
@@ -110,7 +110,7 @@ let img3;
     
         }
         if(keyCode == 66){
-          window.location.replace("first1pg.html");
+          window.location.replace("index.html");
 
         }
       }
