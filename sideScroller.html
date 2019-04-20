@@ -28,12 +28,18 @@ var rand2 = Math.floor(Math.random()*200)+200;
 let img;
 let img2;
 let img3;
+      let song;
+      function preload() {
+  song = loadSound('Naruto - Narutos Theme Song.mp3');
+}
       function setup(){
         createCanvas(w,h);
         img = loadImage('village.jpg')
         img2 = loadImage('kakashi.png')
         img3 = loadImage('running.png')
         img4 = loadImage('kakashi.png')
+            song.play();
+
 
       }
       function draw() {
