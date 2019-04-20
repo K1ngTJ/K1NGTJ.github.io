@@ -47,8 +47,7 @@ let img3;
       barrier2.update();
       barrier2.kill();
       hit = collideRectRect(barrier.x,rand1,50,50,jumper.x,jumper.y,50,50);
-
-      hit2 = collideRectRect(barrier2.x,rand2,50,50,jumper.x,jumper.y,50,75);
+      hit2 = collideRectRect(barrier2.x,rand2,50,50,jumper.x,jumper.y,50,50);
       print("colliding? " + hit);
       textSize(30);
       fill(color("white"));
