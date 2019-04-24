@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+  </head>
+  <body>
+    <script>
+    var img;
+    function preload(){
+      img = loadImage('shuriken.png')
+    }
+      function setup() {
+        createCanvas(window.innerWidth,window.innerHeight,WEBGL)
+  
+      }
+      function draw() {
+        background(255);
+        var locX = mouseX - width/2;
+        var locY = mouseY - height/2;
+        //directionalLight(r,g,b,x,y,z)
+        directionalLight(0, 255, 255,-locX,-locY,-0);
+        specularMaterial(275);
+        noStroke();
+        rotateX(mouseX/400);
+        rotateY(mouseY/400);
+texture(img);
+        box(250);
+      }
+    </script>
+  </body>
+</html>
