@@ -99,21 +99,14 @@ let img3;
         }
       }
       
-      function keyPressed() {
-        if(keyCode == 32){
-          jumper.up();
-        }
-      
-        
-        if(keyCode == 82){
-          document.location.reload(true)
-    
-        }
-        if(keyCode == 66){
-          window.location.replace("index.html");
-
-        }
-      }
+     
+      function mousePressed() {
+  if (value === 0) {
+    jumper.up();
+  } else {
+    value = 0;
+  }
+}
       
            function barrier() {
         this.x = w;
